@@ -1,0 +1,16 @@
+namespace: nginx
+app_name: nginx
+
+openshift_cluster_content:
+- object: Builds
+  content:
+  - name: nginx
+    template: "https://raw.githubusercontent.com/redhat-cop/containers-quickstarts/v1.4/build-docker-generic/.openshift/templates/docker-build-template.yml"
+    params_from_vars:
+      NAME: "{{ app_name }}"
+      SOURCE_REPOSITORY_URL: https://github.com/haithamshahin333/containers-quickstarts.git
+      SOURCE_REPOSITORY_REF: feature/nginx
+      SOURCE_CONTEXT_DIR: nginx
+    namespace: "{{ namespace }}"
+    tags:
+      - nginx
