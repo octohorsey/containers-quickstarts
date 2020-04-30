@@ -1,4 +1,4 @@
-FROM registry.redhat.io/rhscl/nginx-116-rhel7
+FROM registry.access.redhat.com/rhel8/nginx-116
 
 ADD nginx.conf /etc/opt/rh/rh-nginx116/nginx/nginx.conf
 

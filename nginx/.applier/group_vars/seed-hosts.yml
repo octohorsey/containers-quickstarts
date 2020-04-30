@@ -1,4 +1,4 @@
-namespace: nginx
+namespace: test-ci-cd
 app_name: nginx
 
 openshift_cluster_content:
