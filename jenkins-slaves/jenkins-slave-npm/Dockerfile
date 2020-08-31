@@ -10,7 +10,7 @@ ADD https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm g
 
 RUN curl --silent --location https://rpm.nodesource.com/setup_${NODEJS_VERSION}.x | bash -
 
-RUN INSTALL_PKGS="nodejs redhat-lsb libXScrnSaver xdg-utils liberation-fonts xorg-x11-server-Xvfb" && \
+RUN INSTALL_PKGS="nodejs redhat-lsb libXScrnSaver xdg-utils liberation-fonts xorg-x11-server-Xvfb gtk2-devel gtk3-devel libnotify-devel GConf2 nss alsa-lib" && \
     yum install -y --setopt=tsflags=nodocs \
       $INSTALL_PKGS && \
     yum -y localinstall \
