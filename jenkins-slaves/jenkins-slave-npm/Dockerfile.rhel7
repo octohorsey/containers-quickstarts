@@ -10,18 +10,22 @@ LABEL com.redhat.component="jenkins-slave-nodejs-rhel7-docker" \
       io.k8s.description="The jenkins slave arachni image has the nodejs tools on top of the jenkins slave base image." \
       io.openshift.tags="openshift,jenkins,slave,nodejs"
 
-ENV NODEJS_VERSION=10 \
+ENV NODEJS_VERSION=12 \
     NPM_CONFIG_PREFIX=$HOME/.npm-global \
     PATH=$HOME/node_modules/.bin/:$HOME/.npm-global/bin/:$PATH \
     CHROME_BIN=/bin/google-chrome
 
 ADD src/google-chrome.repo /etc/yum.repos.d/
 
-RUN INSTALL_PKGS="npm nss_wrapper redhat-lsb libXScrnSaver xdg-utils google-chrome-stable Xvfb gtk3 libnotify-devel GConf2 alsa-lib" && \
+# Install nodejs prereqs
+RUN yum groupinstall -y 'Development Tools'
+RUN yum install curl
+RUN curl -sL https://rpm.nodesource.com/setup_12.x | bash -
+
+RUN INSTALL_PKGS="nodejs nss_wrapper redhat-lsb libXScrnSaver xdg-utils google-chrome-stable Xvfb gtk3 libnotify-devel GConf2 alsa-lib" && \
     yum install -y --setopt=tsflags=nodocs \
       --disablerepo=* \
       --enablerepo=rhel-7-server-rpms \
-      --enablerepo=rhel-7-server-rhoar-nodejs-10-rpms \
       --enablerepo=rhel-7-server-optional-rpms \
       --enablerepo=rhel-7-server-extras-rpms \
       --enablerepo=google-chrome \
