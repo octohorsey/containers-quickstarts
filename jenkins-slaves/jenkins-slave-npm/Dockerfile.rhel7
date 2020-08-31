@@ -18,7 +18,7 @@ ENV NODEJS_VERSION=12 \
 ADD src/google-chrome.repo /etc/yum.repos.d/
 
 # Install nodejs prereqs
-RUN yum groupinstall -y 'Development Tools'
+RUN yum install -y gcc-c++ make
 RUN yum install curl
 RUN curl -sL https://rpm.nodesource.com/setup_12.x | bash -
 
