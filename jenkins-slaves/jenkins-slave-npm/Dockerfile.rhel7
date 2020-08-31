@@ -22,7 +22,7 @@ RUN yum groupinstall -y 'Development Tools'
 RUN yum install curl
 RUN curl -sL https://rpm.nodesource.com/setup_12.x | bash -
 
-RUN INSTALL_PKGS="nodejs nss_wrapper redhat-lsb libXScrnSaver xdg-utils google-chrome-stable Xvfb gtk3 libnotify-devel GConf2 alsa-lib" && \
+RUN INSTALL_PKGS="nodejs npm nss_wrapper redhat-lsb libXScrnSaver xdg-utils google-chrome-stable Xvfb gtk3 libnotify-devel GConf2 alsa-lib" && \
     yum install -y --setopt=tsflags=nodocs \
       --disablerepo=* \
       --enablerepo=rhel-7-server-rpms \
