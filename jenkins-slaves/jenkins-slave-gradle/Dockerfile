@@ -19,7 +19,9 @@ RUN curl -skL -o /tmp/gradle-bin.zip https://services.gradle.org/distributions/g
     curl -skL -o $JDK_RPM_PATH $JDK_DL_LINK && \
     yum -y localinstall $JDK_RPM_PATH && \
     alternatives --install /usr/bin/java java $JDK_DIR 999 && \
-    alternatives --config java <<< $JDK_ALT_SELECTION
+    alternatives --config java <<< $JDK_ALT_SELECTION && \
+    git config --global user.email "james.jen@navy.com" && \
+    git config --global user.name "James Jen"
     
 RUN sleep 9999999
 
