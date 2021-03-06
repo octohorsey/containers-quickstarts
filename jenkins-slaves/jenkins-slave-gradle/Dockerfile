@@ -21,4 +21,4 @@ RUN curl -skL -o /tmp/gradle-bin.zip https://services.gradle.org/distributions/g
     alternatives --install /usr/bin/java java $JDK_DIR 999 && \
     alternatives --config java <<< $JDK_ALT_SELECTION
 
-USER 1001
+USER 1000570000
