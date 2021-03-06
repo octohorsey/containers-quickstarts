@@ -21,6 +21,7 @@ RUN git config --global user.email "james.jen@navy.com" && \
     curl -skL -o $JDK_RPM_PATH $JDK_DL_LINK && \
     yum -y localinstall $JDK_RPM_PATH && \
     alternatives --install /usr/bin/java java $JDK_DIR 999 && \
-    alternatives --config java <<< $JDK_ALT_SELECTION
+    alternatives --config java <<< $JDK_ALT_SELECTION && \
+    useradd myuser -u 1001
     
 USER 1001
