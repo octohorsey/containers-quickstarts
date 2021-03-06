@@ -24,5 +24,3 @@ RUN git config --global user.email "james.jen@navy.com" && \
     alternatives --config java <<< $JDK_ALT_SELECTION
     
 USER 1001
-
-RUN sleep 1h
