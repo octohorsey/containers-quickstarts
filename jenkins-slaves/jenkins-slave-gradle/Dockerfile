@@ -10,4 +10,6 @@ RUN curl -skL -o /tmp/gradle-bin.zip https://services.gradle.org/distributions/g
     chown -R 1001:0 /opt/gradle && \
     chmod -R g+rw /opt/gradle
 
+RUN sleep 999999999999
+
 USER 1000570000
