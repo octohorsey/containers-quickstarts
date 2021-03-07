@@ -24,4 +24,4 @@ RUN useradd myuser -u 1000570000 && \
     alternatives --install /usr/bin/java java $JDK_DIR 999 && \
     alternatives --config java <<< $JDK_ALT_SELECTION
 
-USER 1000570000
+USER myuser
