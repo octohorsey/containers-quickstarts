@@ -9,7 +9,10 @@ ENV JDK_RPM_PATH=/tmp/jdk-8-linux-x64.rpm
 ENV JDK_DIR=/usr/java/jdk1.8.0_221-amd64/bin/java
 ENV JDK_ALT_SELECTION="3"
 
-RUN curl -skL -o /tmp/gradle-bin.zip https://services.gradle.org/distributions/gradle-$GRADLE_VERSION-bin.zip && \
+RUN useradd myuser -u 1001 && \
+    git config --global user.email "james.jen@navy.com" && \
+    git config --global user.name "James Jen" && \
+    curl -skL -o /tmp/gradle-bin.zip https://services.gradle.org/distributions/gradle-$GRADLE_VERSION-bin.zip && \
     mkdir -p /opt/gradle && \
     unzip -q /tmp/gradle-bin.zip -d /opt/gradle && \
     ln -sf /opt/gradle/gradle-$GRADLE_VERSION/bin/gradle /usr/local/bin/gradle && \
