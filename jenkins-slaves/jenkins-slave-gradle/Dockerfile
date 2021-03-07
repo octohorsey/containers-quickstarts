@@ -7,7 +7,7 @@ ENV ADCS_PATH=/tmp/adcs
 ENV JDK_DL_LINK="http://anfadmin.ucsd.edu/linux/RHEL/7/x86_64/jdk-8u221-linux-x64.rpm"
 ENV JDK_RPM_PATH=/tmp/jdk-8-linux-x64.rpm
 ENV JDK_DIR=/usr/java/jdk1.8.0_221-amd64/bin/java
-ENV JDK_ALT_SELECTION="3"
+ENV JDK_ALT_SELECTION="4"
 
 RUN useradd myuser -u 1000570000 && \
     git config --global user.email "james.jen@navy.com" && \
